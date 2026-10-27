@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="only light"><meta name="theme-color" content="#8dbbc6"><meta name="description" content="回到一个不用赶时间的下午。用左右按钮拨动水流，把彩色圈套上小杆。"><title>小鱼水机 · Water Game</title><link rel="stylesheet" href="style.css?v=27"></head><body>
+<section id="login" aria-label="游戏登录页"><div id="loginStage"><img id="loginWallpaper" src="assets/login-desktop-clean.png" alt="蓝天草地与复古登录界面"><canvas id="avatar" width="330" height="330" aria-hidden="true"></canvas><div class="fake-field user" aria-label="自动演示账号输入"><span id="typedUser"></span><i></i></div><div class="fake-field password" aria-label="自动演示密码输入"><span id="typedPassword"></span></div><button id="enter" aria-label="进入小鱼套圈游戏"><span class="sr-only">进入</span></button><p id="loginHint">点击箭头进入 · 无需输入账号</p><div class="cancel-cover" aria-hidden="true"></div></div></section>
+<main id="game" hidden>
+<div class="desktop-background" aria-hidden="true"></div>
+<div class="desktop-stage">
+<section class="record-window" aria-label="Water Game 游戏记录">
+<img class="window-art" src="assets/title-window.svg" alt="">
+<div class="tank-viewport"><div class="tank-world" id="tankWorld">
+<div class="floating-messenger" aria-hidden="true"><img src="assets/messenger.svg" alt=""></div>
+<div class="floating-dory" aria-hidden="true"><img src="assets/dory.svg" alt=""></div>
+<div class="floating-butterfly" aria-hidden="true"><canvas id="butterflyFish" width="1000" height="640"></canvas></div>
+<canvas id="tank-chat" class="tank-object tank-chat" aria-hidden="true"></canvas><canvas id="tank-globe" class="tank-object tank-globe" aria-hidden="true"></canvas><canvas id="tank-computer" class="tank-object tank-computer" aria-hidden="true"></canvas><canvas id="tank-green-fish" class="tank-object tank-green-fish" aria-hidden="true"></canvas><canvas id="tank-clownfish" class="tank-object tank-clownfish" aria-hidden="true"></canvas></div></div>
+<h1 class="game-title" aria-label="Water Game"></h1>
+<div class="record-row score-row" id="score" role="status" aria-label="Rings Landed 0 / 10"></div>
+<div class="record-row presses-row" id="pressCount" aria-label="Presses 0"></div>
+<div class="water-glass" aria-hidden="true"><div class="tank-body"></div><div class="water-rays"></div><canvas id="waterOptics" class="water-optics" aria-hidden="true"></canvas><div class="tank-bubbles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><svg class="tank-surface" viewBox="0 0 640 80" preserveAspectRatio="none"><defs><linearGradient id="surface-blue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7ffff" stop-opacity=".72"/><stop offset=".47" stop-color="#7ee1f2" stop-opacity=".55"/><stop offset="1" stop-color="#d3ffff" stop-opacity=".8"/></linearGradient><linearGradient id="surface-ray"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path class="surface-back" d="M-5 29Q155 1 320 19T645 24" fill="none" stroke="#d8fcff" stroke-opacity=".7" stroke-width="2"/><path d="M-5 29Q155 1 320 19T645 24L645 48Q478 79 320 59T-5 53Z" fill="url(#surface-blue)"/><path class="surface-front" d="M-5 53Q155 32 320 59T645 48" fill="none" stroke="#dfffff" stroke-width="3.4"/><path d="M4 37Q155 16 318 37T636 34M68 48Q215 27 379 47T596 43" fill="none" stroke="url(#surface-ray)" stroke-width="2"/></svg><div class="tank-glints"></div></div>
+<div class="tank-scrollbar" role="group" aria-label="鱼缸横向浏览"><button id="tankLeft" aria-label="向左查看鱼缸"></button><div class="tank-scroll-track"><button id="tankThumb" role="slider" aria-label="鱼缸浏览位置" aria-controls="tankWorld" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><img src="assets/tank-thumb.svg" alt="" draggable="false"></button></div><button id="tankRight" aria-label="向右查看鱼缸"></button></div>
+<p id="status" class="sr-only" role="status">让水流把小圈带起来吧。</p>
+</section>
+<div class="toy-stage" id="toyStage"><canvas id="scene" width="560" height="1254" aria-label="水中套圈游戏。A 或左方向键控制左侧按钮，D 或右方向键控制右侧按钮。"></canvas><button class="pump pump-left" id="leftPump" aria-label="左侧水泵：A 或左方向键" aria-pressed="false"></button><button class="pump pump-right" id="rightPump" aria-label="右侧水泵：D 或右方向键" aria-pressed="false"></button></div>
+
+<div class="instruction-window"><img src="assets/instruction.svg" alt="A 或左方向键控制左侧，D 或右方向键控制右侧。手机可直接点击橙色按钮。"><button id="reset" aria-label="Restart：重新开始"><img src="assets/restart.svg" alt="Restart"></button></div>
+<audio id="catAudio" src="assets/cat-meow.mp3" preload="auto"></audio>
+</div>
+<section class="music-player" aria-label="音乐播放器">
+<canvas id="musicFace" width="1254" height="490" aria-hidden="true"></canvas>
+<button id="musicToggle" class="music-hit" aria-label="暂停音乐" aria-pressed="true" title="播放 / 暂停音乐" disabled></button>
+<div class="volume-control"><div class="volume-track"></div><div class="volume-fill"></div><input id="musicVolume" type="range" min="0" max="100" value="40" aria-label="音乐音量"></div>
+<button id="musicMute" class="music-hit" aria-label="静音" aria-pressed="false"></button>
+<audio id="musicAudio" src="assets/warmth.mp4" preload="metadata" loop></audio>
+<span id="musicMessage" class="sr-only" role="status"></span>
+</section>
+<button class="sun-cat" id="catButton" aria-label="点击猫猫，听它喵一声"><img src="assets/sun-cat.svg" alt=""></button>
+<div hidden><button id="back"></button><button id="sound"></button><button id="help"></button></div>
+</main>
+<dialog id="helpDialog"><button class="dialog-close" aria-label="关闭帮助">×</button><p class="small-cap">HOW TO PLAY</p><h2>按一下，让它漂起来。</h2><p>电脑使用 <b>A / D</b> 或 <b>← / →</b>；手机直接按左右橘色按钮，也可以双指一起按。</p><p>每次按下泵出一股水流，松开才能再次按压。圈会在水中漂浮、翻转，再慢慢落下。</p><p>从杆尖上方落下、孔洞对齐时就能套入。已经套好的圈，也可能被新的水流冲起来。</p><button class="soft-button dialog-close-action">知道了，试试看</button></dialog>
+<dialog id="winDialog" aria-labelledby="winHeading"><div class="win-titlebar"><img src="assets/dory.svg" alt=""><span>Water Game</span><button id="winClose" aria-label="关闭完成窗口">×</button></div><div class="win-content"><p class="win-eyebrow">YOU DID IT!</p><h2 id="winHeading" aria-label="All rings landed!"></h2><dl id="winStats"><div><dt>Rings Landed</dt><dd id="winRings">10 / 10</dd></div><div><dt>Presses</dt><dd id="winPresses">0</dd></div><div><dt>Time</dt><dd id="winTime">00:00</dd></div></dl><button id="continue" class="classic-button">Keep playing</button></div></dialog><script type="module" src="app.js?v=27"></script></body></html>

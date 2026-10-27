@@ -1,0 +1,236 @@
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,"Microsoft YaHei",sans-serif;color:#385d68;background:#fafbfa}button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:2px solid #2695ab;outline-offset:5px}button:disabled{cursor:wait}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}[hidden]{display:none!important}
+#login{position:fixed;inset:0;background:#426d9d;overflow:hidden;z-index:10;transition:opacity .55s}#login.leaving{opacity:0;pointer-events:none}#loginStage{position:absolute;left:50%;top:50%;width:1376px;height:768px;transform:translate(-50%,-50%) scale(var(--login-scale,1));transform-origin:center}#loginWallpaper{position:absolute;inset:0;width:100%;height:100%;user-select:none;-webkit-user-drag:none}#avatar{position:absolute;left:606px;top:252px;width:162px;height:160px;border-radius:4px;opacity:.97}.fake-field{position:absolute;left:548px;width:279px;height:22px;background:#fffefb;display:flex;align-items:center;padding:0 4px;color:#334045;font-size:15px;overflow:hidden;pointer-events:none}.fake-field.user{top:471px}.fake-field.password{top:512px;height:19px;letter-spacing:3px}.fake-field i{height:16px;width:1px;background:#346174;margin-left:1px;animation:cursor 1s step-end infinite}#enter{position:absolute;left:836px;top:499px;width:45px;height:43px;border:0;border-radius:50%;background:transparent;box-shadow:0 0 0 0 #a6edff;transition:box-shadow .2s}#enter:hover{box-shadow:0 0 17px 4px #d6ffffa6}#enter:active{background:#082e5260}#loginHint{position:absolute;left:500px;top:544px;width:375px;text-align:center;font-size:12px;color:#fff;text-shadow:0 1px 3px #194322;margin:0}
+#game{min-height:100svh;background:radial-gradient(ellipse at 50% 40%,#fff 30%,#f6faf9 85%);animation:arrive .8s ease}header{height:85px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between}.text-button{background:none;border:0;padding:9px 0;font-size:11px;opacity:.75}.text-button:hover{opacity:1}.wordmark{text-align:center;font-size:12px;letter-spacing:4px;color:#4e7884}.wordmark span{display:block;letter-spacing:2px;font-size:9px;margin-top:7px;color:#9aaeb1}.play-layout{max-width:1350px;margin:0 auto;min-height:calc(100svh - 145px);display:grid;grid-template-columns:1fr minmax(250px,430px) 1fr;align-items:center;gap:30px;padding:0 5vw}.intro{align-self:center;padding-bottom:25px;max-width:270px}.small-cap{font-size:9px;letter-spacing:2.5px;color:#78979d}h1{font-weight:400;font-family:Georgia,"Microsoft YaHei",serif;font-size:clamp(25px,3vw,38px);line-height:1.7;letter-spacing:2px;margin:18px 0;color:#456f7b}.intro>p:not(.small-cap){font-size:11px;line-height:2.2;color:#8d9fa3}.score-card{margin-top:36px;border-top:1px solid #dbe7e6;padding:20px 0 7px;max-width:220px}.score-card>span{font-size:10px;letter-spacing:2px}.score-card strong{display:block;font-weight:400;margin-top:9px}.score-card b{font:42px Georgia,serif;color:#408d9e}.score-card i{font:19px Georgia,serif;color:#a3b8bb}.score-card p{font-size:10px;line-height:1.8;min-height:36px;color:#94a9ad;max-width:210px}.soft-button{padding:9px 18px;font-size:11px;border-radius:20px;border:1px solid #c0d6db;background:linear-gradient(#fff,#edf5f5);box-shadow:0 2px 5px #7b9ba00d}.soft-button:hover{border-color:#7bafb9}.toy-area{display:flex;align-items:center;justify-content:center;flex-direction:column;min-width:0}.toy-stage{position:relative;height:min(77svh,840px);aspect-ratio:560/1254;max-width:100%;isolation:isolate}#scene{display:block;width:100%;height:100%;touch-action:none}.pump{position:absolute;top:77.94%;width:23.2%;height:7.9%;border:0;border-radius:50%;background:transparent;touch-action:none;user-select:none;-webkit-user-select:none}.pump-left{left:14.6%}.pump-right{left:62.7%}.pump.active{background:#36180519;box-shadow:inset 0 3px 4px #44200e3d,inset 0 0 3px #41220b21}.controls-hint{text-align:center;font-size:10px;line-height:1.8;color:#8eaaaf;margin-top:6px;white-space:nowrap}.controls-hint small{display:block;font-size:9px;color:#acbec0;margin-top:3px}kbd{font:10px Tahoma,sans-serif;padding:2px 5px;border:1px solid #d8e2e3;border-radius:4px;background:white}.touch{display:none}.quiet-note{justify-self:center;align-self:center;color:#91aaae;padding-left:25px}.quiet-note>span{font-size:28px;color:#b1cbd0}.quiet-note p{font-family:Georgia,"Microsoft YaHei",serif;font-size:13px;line-height:2;letter-spacing:2px}.quiet-note small{display:block;font-size:8px;letter-spacing:2px;line-height:2.1;margin-top:30px;color:#b5c6c9}footer{min-height:50px;padding:10px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:9px;color:#a6b9bc}
+dialog{width:min(420px,90vw);border:1px solid #c9dce0;background:linear-gradient(140deg,#fffffffa,#eef8f8fa);border-radius:14px;padding:32px;color:#456977;box-shadow:0 25px 100px #1d657035}dialog::backdrop{background:#20465444;backdrop-filter:blur(5px)}dialog h2{font-size:24px;font-weight:400;margin:20px 0}dialog p{font-size:12px;line-height:2}dialog .soft-button{margin-top:12px}.dialog-close{position:absolute;right:12px;top:8px;border:0;background:none;font-size:24px}#winDialog{text-align:center}#winStats{color:#99afb3;font-size:11px}
+@keyframes cursor{50%{opacity:0}}@keyframes arrive{from{opacity:0}to{opacity:1}}
+@media(max-width:850px){.play-layout{grid-template-columns:1fr 1.4fr;gap:10px;padding:0 6vw}.quiet-note{display:none}header{height:70px}.toy-stage{height:min(76svh,780px)}h1{font-size:26px}.intro{padding-bottom:0}}
+@media(max-width:600px){header{height:55px;padding:0 20px}.wordmark{font-size:10px;letter-spacing:3px}.wordmark span{font-size:8px;letter-spacing:1px;margin-top:4px}.text-button{font-size:10px}.play-layout{display:flex;flex-direction:column;gap:0;padding:0 12px;min-height:0}.intro{display:contents}.intro>.small-cap,.intro>h1,.intro>p,.quiet-note{display:none}.score-card{order:1;position:relative;display:flex;align-items:center;justify-content:center;gap:10px;max-width:none;width:100%;margin:0;padding:2px 0 6px;border:0}.score-card>span{font-size:9px}.score-card strong{margin:0}.score-card b{font-size:25px}.score-card i{font-size:14px}.score-card p{display:none}#reset{position:fixed;bottom:16px;right:16px;z-index:2;font-size:10px;padding:8px 12px}.toy-area{order:2;width:100%}.toy-stage{height:min(calc(100svh - 164px),860px);max-height:190vw}.controls-hint{font-size:9px;margin-top:1px}.controls-hint small{font-size:8px}.keyboard{display:none}.touch{display:inline}footer{padding:10px 18px;min-height:48px}footer>span:nth-child(2){display:none}#help{margin-right:95px}.pump{outline-offset:1px}}
+@media(pointer:coarse){.keyboard{display:none}.touch{display:inline}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.mobile-login #avatar{display:none}.mobile-login .fake-field{left:58px;width:500px;font-size:25px;height:43px;padding-left:7px}.mobile-login .fake-field.user{top:679px}.mobile-login .fake-field.password{top:754px;height:37px;letter-spacing:5px}.mobile-login .fake-field i{height:24px}.mobile-login #enter{left:578px;top:731px;width:75px;height:75px}.mobile-login #loginHint{left:38px;top:826px;width:600px;font-size:17px}
+/* User's collage layout, composed on the 1880 x 1224 reference artboard. */
+#game{position:relative;min-height:100svh;display:grid;place-items:center;isolation:isolate;overflow:hidden;background:#7c9bc0;color:#181818}
+.desktop-background{position:absolute;inset:0;z-index:-1;background:url('assets/desktop-bg.png') center/cover no-repeat;filter:saturate(.85) contrast(.94) brightness(.99)}
+.desktop-stage{position:relative;width:min(100vw,153.5948svh);aspect-ratio:1880/1224}
+.record-window{position:absolute;left:2.55%;top:4.08%;width:44.68%;aspect-ratio:574/598;z-index:1}
+.window-art{width:100%;height:100%;display:block;pointer-events:none}
+.game-title{position:absolute;left:7.8%;top:34.5%;width:66%;height:9%;margin:0;line-height:1;filter:drop-shadow(2px 3px 1px #14216975)}
+.game-title svg,.record-row svg{display:block;width:100%;height:100%}
+.record-row{position:absolute;left:6.5%;height:4%;width:56%;color:#242424;display:flex;align-items:center}
+.score-row{top:83.3%}.presses-row{top:91.6%}
+.floating-messenger{position:absolute;left:14.7%;top:47.7%;width:20%;animation:float-person 5.3s ease-in-out -1.4s infinite}
+.floating-dory{position:absolute;left:56.2%;top:55.7%;width:30%;animation:float-fish 7.1s ease-in-out -3.2s infinite}
+.floating-messenger img,.floating-dory img{display:block;width:100%;height:auto}
+#game .toy-stage{position:absolute;left:39.55%;top:13.1%;width:21.4%;height:auto;max-width:none;aspect-ratio:560/1254;z-index:3;filter:drop-shadow(2px 6px 5px #0e3c3b20)}
+#scene{width:100%;height:100%;display:block}
+.pump{top:77.94%;width:23.2%;height:7.9%;border:0;border-radius:50%;background:transparent;touch-action:none;user-select:none}
+.pump.active{background:#36180519;box-shadow:inset 0 3px 4px #44200e3d,inset 0 0 3px #41220b21}
+.music-player{position:absolute;left:70.7%;top:3.7%;width:26.3%;aspect-ratio:1254/490;z-index:4}
+#musicFace{display:block;width:100%;height:100%}.music-hit{position:absolute;border:0;background:transparent;padding:0;border-radius:50%}
+#musicToggle{left:6.4%;top:24%;width:30%;height:58%;cursor:pointer}
+#musicToggle:disabled{cursor:default;opacity:1}
+#musicToggle:active:not(:disabled){background:#193c6518;box-shadow:inset 0 3px 4px #24578050}
+#musicMute{left:71.6%;top:74%;width:8%;height:11%}
+#musicMute[aria-pressed=true]{background:#12325855}
+.volume-control{position:absolute;left:34%;top:74.6%;width:37.5%;height:8%;--volume:40%}
+.volume-track{position:absolute;inset:0;background:var(--volume-track-image) center/100% 100% no-repeat}
+.volume-fill{position:absolute;left:2.4%;top:18%;height:64%;width:calc(var(--volume) * .94);background:var(--volume-fill-image) left/100% 100% no-repeat;border-radius:30px 0 0 30px}
+#musicVolume{position:absolute;inset:0;width:100%;height:100%;margin:0;background:transparent;appearance:none;-webkit-appearance:none;cursor:pointer;touch-action:none}
+#musicVolume::-webkit-slider-runnable-track{height:100%;background:transparent}
+#musicVolume::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:16%;height:100%;border:0;background:var(--volume-thumb-image) center/100% 100% no-repeat}
+#musicVolume::-moz-range-track{background:transparent}
+#musicVolume::-moz-range-thumb{width:25px;height:12px;border:0;border-radius:20px;background:#bad5f4}
+.instruction-window{position:absolute;left:71.15%;top:65.9%;width:25.9%;aspect-ratio:333/205;z-index:4}
+.instruction-window>img{display:block;width:100%;height:100%}
+#reset{position:absolute;left:27.2%;top:70.7%;width:43%;height:24.4%;padding:0;border:0;border-radius:0;background:none}
+#reset img{display:block;width:100%;height:100%}
+#reset:hover{filter:brightness(1.06)}
+#reset:active{transform:translate(1px,1px);filter:brightness(.88)}
+.sun-cat{position:absolute;bottom:.4%;left:.15%;width:11.2%;height:auto;z-index:5}
+@keyframes float-person{0%,100%{transform:translate(-4px,5px) rotate(-2deg)}28%{transform:translate(5px,-12px) rotate(1deg)}55%{transform:translate(9px,-4px) rotate(2deg)}78%{transform:translate(-2px,10px) rotate(-1deg)}}
+@keyframes float-fish{0%,100%{transform:translate(10px,-6px) rotate(2deg)}22%{transform:translate(-8px,9px) rotate(-1deg)}51%{transform:translate(-16px,1px) rotate(-3deg)}76%{transform:translate(1px,-13px) rotate(0deg)}}
+@media(max-width:600px){
+#game{min-height:100svh;align-items:start}
+.desktop-stage{width:100%;aspect-ratio:auto;height:max(100svh,740px)}
+.desktop-background{background-position:61% center}
+.record-window{left:3%;top:15%;width:76%}
+#game .toy-stage{left:35%;top:29%;width:49%;max-height:none}
+.music-player{left:auto;right:3%;top:2%;width:65%}
+.instruction-window{left:auto;right:3%;top:auto;bottom:2.5%;width:53%}
+.sun-cat{left:1%;bottom:1%;width:19%}
+#reset{position:absolute;bottom:auto;right:auto;font-size:inherit;padding:0;z-index:auto}
+.pump{min-height:30px}
+}
+@media(prefers-reduced-motion:reduce){.floating-messenger,.floating-dory{animation:none}}
+
+/* Browser review: a smaller window with classic system counters. */
+.record-window{transform:scale(.90);transform-origin:top left;container-type:inline-size}
+.record-row{width:80%;font-family:Tahoma,"Microsoft Sans Serif",Arial,sans-serif;font-size:4.5cqw;font-weight:400;letter-spacing:0;line-height:1;white-space:nowrap;text-shadow:none}
+
+/* Restore the original pixel counters. */
+.record-row{width:56%;font-size:inherit;white-space:normal}
+
+/* Completion message uses the same classic desktop chrome as the instruction window. */
+#winDialog{width:min(440px,92vw);padding:3px;border:0;border-radius:0;background:#bfbfbf;color:#151515;box-shadow:inset 1px 1px #fff,inset -1px -1px #111,inset 2px 2px #dfdfdf,inset -2px -2px #777,5px 6px 0 #0003;font-family:Tahoma,"Microsoft Sans Serif",sans-serif;text-align:center}
+#winDialog::backdrop{background:#10212836;backdrop-filter:blur(1px)}
+.win-titlebar{height:28px;display:flex;align-items:center;gap:7px;padding:3px 4px 3px 6px;background:#2f2393;color:#fff;text-align:left;font:bold 14px "Courier New",monospace;letter-spacing:.3px}
+.win-titlebar>img{width:23px;height:17px;object-fit:contain}.win-titlebar>span{flex:1}
+#winClose,.classic-button{border:0;border-radius:0;background:#bfbfbf;color:#111;box-shadow:inset 1px 1px #fff,inset -1px -1px #111,inset 2px 2px #dfdfdf,inset -2px -2px #777}
+#winClose{width:22px;height:22px;padding:0;font:bold 22px/20px Arial,sans-serif}
+#winClose:active,.classic-button:active{box-shadow:inset 1px 1px #111,inset -1px -1px #fff,inset 2px 2px #777;transform:translate(1px,1px)}
+.win-content{padding:22px 28px 23px}.win-eyebrow{margin:0 0 16px!important;font:bold 12px/1.2 "Courier New",monospace!important;letter-spacing:2px;color:#393939}
+#winHeading{margin:0 auto 15px!important;width:100%;height:24px}#winHeading svg{display:block;width:100%;height:100%}
+#winDialog .win-note{font-size:12px;line-height:1.6;margin:0 0 19px;color:#363636}
+#winStats{margin:0 auto 21px;padding:10px 14px;width:90%;font:14px/1.6 "Courier New",monospace;background:#c9c9c9;box-shadow:inset 1px 1px #777,inset -1px -1px #eee}
+#winStats>div{display:flex;align-items:center;justify-content:space-between;gap:14px}#winStats dt,#winStats dd{margin:0}#winStats dd{font-weight:bold;font-variant-numeric:tabular-nums;white-space:nowrap}
+#continue.classic-button{min-width:155px;padding:9px 22px;font:16px/1.2 "Courier New",monospace}
+#winDialog button:focus-visible{outline:1px dotted #111;outline-offset:-5px}
+@media(max-width:420px){.win-content{padding:20px 17px}#winHeading{height:21px}#winStats{width:100%;font-size:13px}}
+
+.floating-butterfly{position:absolute;left:50%;top:46%;width:19%;animation:swim-butterfly 11.7s linear -5.4s infinite;pointer-events:none}
+#butterflyFish{display:block;width:100%;height:auto}
+@keyframes swim-butterfly{0%,100%{transform:translate(-22px,0) rotate(-2deg)}20%{transform:translate(6px,-4px) rotate(-3deg)}45%{transform:translate(30px,3px) rotate(2deg)}65%{transform:translate(8px,9px) rotate(3deg)}85%{transform:translate(-14px,5px) rotate(0deg)}}
+@media(min-width:601px){.instruction-window{left:69%;top:auto;bottom:13.3%}}
+@media(prefers-reduced-motion:reduce){.floating-butterfly{animation:none}}
+
+#winStats,#winStats dt,#winStats dd{color:#303030}
+#winHeading{text-align:center}
+#continue.classic-button{width:188px;height:42px;padding:10px 18px}
+#continue svg{display:block;width:100%;height:20px}
+button.sun-cat{padding:0;border:0;border-radius:0;background:none;cursor:pointer;line-height:0}
+.sun-cat img{display:block;width:100%;height:auto;pointer-events:none}
+button.sun-cat:active{transform:scale(.97);transform-origin:bottom left}
+button.sun-cat:focus-visible{outline:2px dotted #fff;outline-offset:3px}
+
+/* A little softness, including text, like the raster desktop-window artwork. */
+#winDialog{filter:blur(.38px)}
+.instruction-window{filter:blur(.38px)}
+/* Confined to the transparent opening in the supplied 574 x 598 window. */
+.water-glass{position:absolute;left:5.431%;top:29.764%;width:88.976%;height:41.612%;border-radius:2.62% / 6.03%;overflow:hidden;pointer-events:none;z-index:2;isolation:isolate;background:linear-gradient(172deg,rgba(218,252,255,.08),rgba(115,219,240,.11) 45%,rgba(31,158,197,.19));box-shadow:inset 0 1px 2px #edffff69,inset 0 -1px 2px #246b9129}
+.water-rays{position:absolute;inset:-12%;opacity:.65;background:radial-gradient(ellipse at 20% 0%,#ffffff4d,transparent 56%),linear-gradient(111deg,transparent 14%,#ffffff00 19%,#ffffff26 23%,#ffffff00 29%,transparent 33%,#ffffff17 37%,transparent 44%,#ffffff12 49%,transparent 57%);transform-origin:20% 0;animation:water-sun 13s ease-in-out -4s infinite alternate}
+.water-caustics{position:absolute;inset:-15%;background:url('assets/water-caustics.svg') center/110% 115% repeat;opacity:.14;mix-blend-mode:screen;mask-image:linear-gradient(transparent 4%,#0009 36%,#000 100%);animation:water-refraction 18s ease-in-out -6s infinite alternate}
+.water-caustics-second{opacity:.07;transform:rotate(12deg);background-size:145% 135%;animation:water-refraction-second 23s ease-in-out -11s infinite alternate}
+@keyframes water-sun{from{transform:rotate(-1deg) translateX(-1%);opacity:.48}to{transform:rotate(1.5deg) translateX(2%);opacity:.72}}
+@keyframes water-refraction{from{transform:translate(-2%,1%) scale(1.02)}to{transform:translate(2%,-2%) scale(1.07)}}
+@keyframes water-refraction-second{from{transform:translate(2%,-1%) rotate(10deg) scale(1.04)}to{transform:translate(-2%,2%) rotate(13deg) scale(1.09)}}
+@media(prefers-reduced-motion:reduce){.water-rays,.water-caustics{animation:none}}
+
+/* Read as a filled glass tank: water volume, a visible top plane and curved glass highlights. */
+.water-glass{background:linear-gradient(180deg,#dbfbff12 0 7%,transparent 15%);box-shadow:inset 2px 0 3px #eeffffa6,inset -3px 0 5px #d9ffff94,inset 0 -3px 4px #ceffffa6,inset 0 -9px 10px #087d9d3d}
+.tank-body{position:absolute;left:0;right:0;top:9.5%;bottom:0;background:radial-gradient(ellipse at 18% 5%,#e4ffff4d,transparent 55%),linear-gradient(170deg,rgba(108,222,242,.29),rgba(39,180,219,.34) 46%,rgba(12,116,167,.49));box-shadow:inset 9px 0 13px #c9ffff40,inset -11px 0 15px #d5ffff40,inset 0 -15px 18px #116d942b;backdrop-filter:saturate(.95) blur(.35px)}
+.tank-surface{position:absolute;left:-1%;top:0;width:102%;height:15.5%;overflow:visible;filter:drop-shadow(0 2px 1px #217e9266);animation:tank-surface 7.9s ease-in-out -2s infinite alternate}
+.surface-front{opacity:.85}
+.water-rays{opacity:.83;background:radial-gradient(ellipse at 14% 0%,#ffffff80,transparent 52%),linear-gradient(112deg,transparent 9%,#ffffff00 13%,#ffffff4d 20%,#ffffff00 29%,transparent 32%,#ffffff29 38%,transparent 45%,#ffffff1c 50%,transparent 59%);mix-blend-mode:screen;animation:water-sun-strong 13s ease-in-out -4s infinite alternate}
+.water-caustics{opacity:.29;mask-image:linear-gradient(transparent 4%,#0009 31%,#000 100%)}
+.water-caustics-second{opacity:.13}
+.tank-glints{position:absolute;inset:0;border-radius:inherit;box-shadow:inset 1px 1px 2px #fff9,inset -2px -2px 3px #d9ffff8c;background:linear-gradient(96deg,transparent 1%,#e9ffff78 2.1%,transparent 4.5%,#fff3 6%,transparent 9% 89%,#e9ffff59 94%,transparent 97%);pointer-events:none}
+.tank-glints:after{content:"";position:absolute;left:3%;top:16%;width:5%;height:69%;border-left:2px solid #efffff8c;border-radius:60% 0 0 50%;transform:rotate(-3deg);filter:blur(.6px)}
+.tank-bubbles{position:absolute;inset:14% 1% 3%;overflow:hidden}
+.tank-bubbles i{position:absolute;left:var(--x);bottom:-12px;width:var(--size);height:var(--size);border:1px solid #eaffffb3;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff9,transparent 65%);box-shadow:0 0 2px #c4fcff4d;opacity:0;animation:tank-bubble-rise var(--duration) linear var(--delay) infinite}
+@keyframes tank-surface{from{transform:translateY(-1px) scaleY(.94)}to{transform:translateY(1px) scaleY(1.06)}}
+@keyframes tank-bubble-rise{0%{transform:translate(0,0);opacity:0}12%{opacity:.8}78%{opacity:.6}100%{transform:translate(8px,-180px);opacity:0}}
+@keyframes water-sun-strong{from{transform:rotate(-1deg) translateX(-1%);opacity:.68}to{transform:rotate(1.5deg) translateX(2%);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.tank-surface,.tank-bubbles i{animation:none}.tank-bubbles i:nth-child(3n){bottom:35%;opacity:.5}.water-rays{animation:none}}
+
+.water-optics{position:absolute;left:0;top:11%;width:100%;height:89%;opacity:.9;pointer-events:none;mask-image:linear-gradient(#0002,#000b 23%,#000);mix-blend-mode:screen}
+.water-rays{filter:blur(2px);background:radial-gradient(ellipse at 17% 0%,#ffffff70,transparent 60%),linear-gradient(112deg,transparent 8%,#ffffff00 16%,#ffffff36 25%,#ffffff00 40%,#ffffff1a 49%,transparent 68%)}
+.surface-front{stroke-width:2;opacity:.63;filter:blur(.5px)}.surface-back{opacity:.55}
+.tank-bubbles i{bottom:-20px;border:.7px solid #d5efff94;background:radial-gradient(ellipse at 28% 23%,#fff9 0%,#fff3 12%,transparent 27%),radial-gradient(ellipse at 68% 72%,transparent 44%,#2c779f24 60%,#e6ffff70 77%,transparent 88%);box-shadow:inset 1px 1px 1px #f2ffff73,inset -1px -1px 1px #265d8138,0 1px 1px #15577a26;animation-name:tank-bubble-natural}
+.tank-bubbles i:before{content:"";position:absolute;inset:12% 14% 45% 13%;border-top:1px solid #fff9;border-left:.7px solid #fff7;border-radius:55%;transform:rotate(-31deg)}
+.tank-bubbles i:after{content:"";position:absolute;right:14%;bottom:11%;width:28%;height:15%;border-bottom:.8px solid #d8ffffad;border-radius:50%;transform:rotate(-25deg)}
+@keyframes tank-bubble-natural{0%{transform:translate(0,0) scale(.85,1);opacity:0}12%{opacity:.78}33%{transform:translate(-5px,-65px) scale(1.03,.97)}61%{transform:translate(4px,-119px) scale(.96,1.05);opacity:.8}85%{opacity:.5}100%{transform:translate(1px,-205px) scale(1.1,1.04);opacity:0}}
+
+/* Clearer tank water while keeping the surface and glass reflections. */
+.tank-body{background:radial-gradient(ellipse at 18% 5%,#e4ffff26,transparent 55%),linear-gradient(170deg,rgba(108,222,242,.12),rgba(39,180,219,.16) 46%,rgba(12,116,167,.23));box-shadow:inset 7px 0 11px #c9ffff30,inset -8px 0 12px #d5ffff30,inset 0 -12px 16px #116d9419;backdrop-filter:saturate(1.02)}
+.water-optics{opacity:.7}
+#game .toy-stage{filter:drop-shadow(7px 13px 7px #0c282c57) drop-shadow(1px 3px 2px #10232a30)}
+
+/* Fixed glass opening, a wider underwater scene and the supplied draggable thumb. */
+.tank-viewport{position:absolute;left:5.431%;top:29.764%;width:88.976%;height:41.612%;overflow:hidden;border-radius:2.62% / 6.03%;z-index:1}
+.tank-world{position:relative;width:257%;height:100%;will-change:transform}
+
+.tank-world .floating-messenger{left:4.05%;top:43.1%;width:8.75%}
+.tank-world .floating-dory{left:22.2%;top:62.3%;width:13.13%}
+.tank-world .floating-butterfly{left:19.5%;top:39.0%;width:8.31%}
+.tank-fish-extra{position:absolute;pointer-events:none;user-select:none;object-fit:contain}
+
+
+.tank-scrollbar{position:absolute;left:4.878%;top:72.241%;width:90.244%;height:7.023%;display:flex;z-index:5}
+.tank-scrollbar>button{width:8.1%;height:100%;flex-shrink:0;border:0;padding:0;background:transparent;border-radius:0}
+.tank-scroll-track{flex:1;min-width:0;position:relative;height:100%;touch-action:none}
+#tankThumb{position:absolute;top:0;left:0;width:38.85%;height:100%;border:0;background:transparent;padding:0;border-radius:0;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+#tankThumb:active{cursor:grabbing}#tankThumb img{width:100%;height:100%;display:block;pointer-events:none}
+.tank-scrollbar button:focus-visible{outline:2px dotted #24206e;outline-offset:-3px}
+@media(prefers-reduced-motion:reduce){.tank-fish-extra{animation:none}}
+
+.record-window>.game-title{z-index:1;pointer-events:none}
+.tank-world .floating-butterfly{left:26%;top:43%;width:8.31%}
+.tank-world .floating-dory{left:14%;top:60%;width:11%}
+.tank-object{position:absolute;pointer-events:none;max-height:47%;object-fit:contain;animation:float-fish 10s ease-in-out infinite}
+.tank-green-fish{left:38%;top:50%;width:10%;animation-duration:9.3s;animation-delay:-2.1s}
+.tank-clownfish{left:51%;top:47%;width:10%;animation-duration:11.6s;animation-delay:-7s}
+.tank-chat{left:64%;top:42%;width:10%;animation-name:float-person;animation-duration:8.1s;animation-delay:-3s}
+.tank-globe{left:77%;top:48%;width:7%;animation-duration:12.3s;animation-delay:-9s}
+.tank-computer{left:89%;top:46%;width:8%;animation-name:float-person;animation-duration:10.7s;animation-delay:-5.4s}
+@media(prefers-reduced-motion:reduce){.tank-object{animation:none}}
+/* Reference pixel cursors, rendered by the browser with accurate click hotspots. */
+@media (any-pointer:fine){
+ :root{--pixel-arrow:url("assets/cursor-arrow.png") 1 1,default;--pixel-hand:url("assets/cursor-hand.png") 11 1,pointer}
+ html,body,body *{cursor:var(--pixel-arrow)!important}
+ body :is(button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),label[for],[role="button"],[role="slider"],.tank-scroll-track),
+ body :is(button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),label[for],[role="button"],[role="slider"],.tank-scroll-track) *{cursor:var(--pixel-hand)!important}
+ body :disabled,body :disabled *{cursor:var(--pixel-arrow)!important}
+}
+
+:root{color-scheme:only light}
+#game>.music-player{position:fixed;left:auto;right:max(env(safe-area-inset-right,0px),clamp(20px,3vw,48px));top:max(env(safe-area-inset-top,0px),clamp(20px,6.3svh,64px));width:min(26.3vw,40.4svh);z-index:6}
+#game>.sun-cat{position:fixed;left:env(safe-area-inset-left,0px);bottom:env(safe-area-inset-bottom,0px);width:min(11.2vw,17.2svh);z-index:6}
+@media(max-width:600px){#game>.music-player{right:max(env(safe-area-inset-right,0px),3vw);top:max(env(safe-area-inset-top,0px),18px);width:65vw}#game>.sun-cat{width:19vw}}
+/* Slightly larger desktop toy, kept inside the annotated frame. */
+@media(min-width:601px){#game .toy-stage{left:39.122%;top:11%;width:22.256%}}
+
+.cancel-cover{position:absolute;left:620px;top:606px;width:136px;height:56px;background:url("assets/login-desktop-clean.png") -764px -606px/1376px 768px;mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);pointer-events:none}
+.mobile-login .cancel-cover{left:199px;top:932px;width:220px;height:70px;background-image:url("assets/login-mobile.jpg");background-size:676px 1200px;background-position:-425px -932px}
+
+.tank-bubbles i{left:0;top:0;bottom:auto;animation:none!important;will-change:transform,opacity}
+.tank-world .floating-messenger{width:7.9%}
+.tank-world .floating-dory{width:11.8%}
+.tank-world .floating-butterfly{width:8.7%}
+.tank-green-fish{width:10.5%}
+.tank-clownfish{width:9.1%}
+.tank-chat{width:8.8%}
+.tank-globe{width:6.3%}
+.tank-computer{width:8.5%}
+.tank-world .tank-reactive{pointer-events:auto;touch-action:manipulation;outline-offset:4px}
+.tank-reactive:focus-visible{outline:2px dotted #234b83;border-radius:8px}
+.tank-reactive>img,.tank-reactive>canvas{pointer-events:none}
+
+/* Portrait login keeps the desktop meadow and a comfortably sized login card. */
+.mobile-login #login{background:#558fcb url("assets/login-desktop-clean.png") left center/auto max(100svh,170vw) no-repeat}
+.mobile-login #loginWallpaper,.mobile-login .cancel-cover{display:none}
+.mobile-login #avatar{display:block;left:150px;top:155px;width:180px;height:180px;padding:8px;border:2px solid #ecffffb3;border-radius:13px;background:linear-gradient(135deg,#efffff6b,#d7f4ff26);box-shadow:0 0 0 5px #a9e2f044,0 5px 14px #173b5f80}
+.mobile-login .fake-field{left:56px;width:320px;height:32px;font-size:17px;padding:0 6px;border:1px solid #90a4a7;border-radius:2px;box-shadow:inset 0 1px 2px #0002}
+.mobile-login .fake-field.user{top:400px}
+.mobile-login .fake-field.password{top:448px;height:32px;letter-spacing:3px}
+.mobile-login .fake-field i{height:18px}
+.mobile-login #enter{left:389px;top:442px;width:42px;height:42px;border:2px solid #d8f7ff;border-radius:50%;background:linear-gradient(#9ce0f5,#4295be 48%,#26668c 52%,#77bcd6);box-shadow:0 2px 4px #123c5b88}
+.mobile-login #enter:before{content:"";position:absolute;left:9px;top:17px;width:20px;height:5px;background:white;border-radius:1px}
+.mobile-login #enter:after{content:"";position:absolute;left:18px;top:10px;width:13px;height:13px;border-top:5px solid white;border-right:5px solid white;transform:rotate(45deg)}
+.mobile-login #loginHint{left:40px;top:505px;width:400px;font-size:14px}
+/* Keep the top windows; let the portrait page scroll naturally around the toy. */
+@media(max-width:600px){
+ #game{display:block;overflow:visible}
+ .desktop-background{position:fixed}
+ .desktop-stage{display:flex;flex-direction:column;align-items:center;height:auto;min-height:max(100svh,740px);padding-top:calc(max(15svh,111px) + 71.260627vw + 24px);padding-bottom:max(32px,env(safe-area-inset-bottom,0px))}
+ #game>.music-player{position:absolute}
+ .record-window{top:max(15svh,111px)}
+ #game .toy-stage{position:relative;left:auto;top:auto;width:80%;max-width:360px;height:auto;max-height:none;flex:none}
+ #scene,.pump,.tank-scroll-track,#tankThumb,#musicVolume{touch-action:pan-y pinch-zoom}
+ .instruction-window{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:53%;margin:24px 3% 0 auto;flex:none}
+}
+
+/* Small slider artwork with a finger-sized transparent hit target. */
+.volume-control:after{content:"";position:absolute;left:calc(var(--volume) * .84);top:0;width:16%;height:100%;background:var(--volume-thumb-image) center/100% 100% no-repeat;pointer-events:none}
+#musicVolume{top:50%;height:44px;transform:translateY(-50%);z-index:1;touch-action:pan-y pinch-zoom}
+#musicVolume::-webkit-slider-thumb{background:none}
+#musicVolume::-moz-range-thumb{width:16%;height:100%;border:0;background:transparent}

@@ -1,0 +1,1 @@
+{"type":"module","private":true,"scripts":{"check":"node --check app.js && node --check engine.js"}}
